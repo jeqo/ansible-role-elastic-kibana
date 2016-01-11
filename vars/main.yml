@@ -1,0 +1,5 @@
+---
+# vars file for elastic-kibana
+kibana_home: /opt/kibana
+
+kibana_sha1_4_3_1: 115ba22882df75eb5f07330b7ad8781a57569b00

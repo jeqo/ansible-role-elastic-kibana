@@ -1,0 +1,29 @@
+---
+#
+- name: create group
+  group: name=kibana state=present
+- name: create user
+  user: name=kibana shell=/bin/bash group=kibana append=yes
+
+- name: install required packages
+  yum: name={{ item }} state=present
+  with_items:
+    - curl
+    - tar
+    - ca-certificates
+
+
+- name: prepare kibana home
+  file:
+    path: "{{ kibana_home }}"
+    state: directory
+    owner: "kibana"
+    group: "kibana"
+
+- name: download kibana
+  get_url:
+    url: "https://download.elastic.co/kibana/kibana/kibana-{{ kibana_version }}-linux-x64.tar.gz"
+    dest: /tmp/kibana.tar.gz
+    #checksum: 66dffb5228a211e61d6d7ef4a86f5758
+
+- unarchive: src=/tmp/kibana.tar.gz dest={{ kibana_home }} owner=kibana group=kibana

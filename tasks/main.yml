@@ -1,0 +1,3 @@
+---
+# tasks file for elastic-kibana
+- include: install-kibana.yml
