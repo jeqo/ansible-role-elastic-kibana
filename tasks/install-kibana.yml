@@ -26,4 +26,4 @@
     dest: /tmp/kibana-{{ kibana_version }}.tar.gz
     #checksum: 66dffb5228a211e61d6d7ef4a86f5758
 
-- unarchive: src=/tmp/kibana.tar.gz dest={{ kibana_home }} owner=kibana group=kibana
+- unarchive: src=/tmp/kibana-{{ kibana_version }}.tar.gz dest={{ kibana_home }} owner=kibana group=kibana
