@@ -27,8 +27,4 @@
     dest: "/tmp"
     copy: no
 
-- copy: src=/tmp/{{ kibana_filename }}/ dest=/opt/kibana/ owner=kibana
-
-#sudo cp -R ~/kibana-4*/* /opt/kibana/
-#sudo chown -R kibana: /opt/kibana
-#sudo chmod +x /etc/init.d/kibana
+- command: mv /tmp/{{ kibana_filename }}/ /opt/kibana/
