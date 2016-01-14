@@ -27,4 +27,4 @@
     dest: "/tmp"
     copy: no
 
-- command: mv /tmp/{{ kibana_filename }}/ /opt/kibana/
+- command: mv /tmp/{{ kibana_filename }}/* /opt/kibana
