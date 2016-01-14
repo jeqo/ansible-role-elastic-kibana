@@ -24,7 +24,7 @@
 
 - unarchive:
     src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
-    dest: "/tmp owner=kibana group=kibana"
+    dest: "/tmp"
 
 - copy: src=/tmp/{{ kibana_filename }}/ dest=/opt/kibana/
 
