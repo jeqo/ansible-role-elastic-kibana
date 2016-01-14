@@ -4,5 +4,13 @@
   hosts: 127.0.0.1
 
   roles:
+    - role: elastic-elasticsearch
+      elasticsearch_cluster_name: elk #
+      elasticsearch_node_name: elk1 #
+      elasticsearch_ip: 0.0.0.0 #elk-fmw01
+      elasticsearch_port: 9200
     - role: elastic-kibana
       kibana_version: 4.3.1
+      kibana_host : 0.0.0.0 #
+      kibana_elasticsearch_host: localhost
+      kibana_elasticsearch_port: 9200

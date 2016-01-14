@@ -18,12 +18,16 @@
     path: "{{ kibana_home }}"
     state: directory
     owner: "kibana"
-    group: "kibana"
 
-- name: download kibana
-  get_url:
-    url: "https://download.elastic.co/kibana/kibana/kibana-{{ kibana_version }}-linux-x64.tar.gz"
-    dest: /tmp/kibana-{{ kibana_version }}.tar.gz
-    #checksum: 66dffb5228a211e61d6d7ef4a86f5758
+- set_fact:
+    kibana_filename: kibana-{{ kibana_version }}-linux-x64
 
-- unarchive: src=/tmp/kibana-{{ kibana_version }}.tar.gz dest={{ kibana_home }} owner=kibana group=kibana
+- unarchive:
+    src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
+    dest: "/tmp/kibana owner=kibana group=kibana"
+
+- copy: src=/tmp/kibana/{{ kibana_filename }}/ dest=/opt/kibana/
+
+#sudo cp -R ~/kibana-4*/* /opt/kibana/
+#sudo chown -R kibana: /opt/kibana
+#sudo chmod +x /etc/init.d/kibana

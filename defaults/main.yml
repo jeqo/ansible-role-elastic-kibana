@@ -1,3 +1,7 @@
 ---
 # defaults file for elastic-kibana
 kibana_version: 4.3.1
+kibana_host : 0.0.0.0 #
+kibana_port : 5600 #
+kibana_elasticsearch_host: localhost
+kibana_elasticsearch_port: 9200
