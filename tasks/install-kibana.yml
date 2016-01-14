@@ -24,9 +24,9 @@
 
 - unarchive:
     src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
-    dest: "/tmp/kibana owner=kibana group=kibana"
+    dest: "/tmp owner=kibana group=kibana"
 
-- copy: src=/tmp/kibana/{{ kibana_filename }}/ dest=/opt/kibana/
+- copy: src=/tmp/{{ kibana_filename }}/ dest=/opt/kibana/
 
 #sudo cp -R ~/kibana-4*/* /opt/kibana/
 #sudo chown -R kibana: /opt/kibana
