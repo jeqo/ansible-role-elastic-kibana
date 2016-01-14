@@ -3,8 +3,8 @@
 - name: define kibana service
   template: src=kibana.service.j2 dest=/etc/systemd/system/kibana.service
 
-# - name: reload systemd
-#   command: systemctl daemon-reload
+- name: reload systemd
+  command: systemctl daemon-reload
 
 - name: start and enable kibana service
   service: name=kibana enabled=yes state=started
