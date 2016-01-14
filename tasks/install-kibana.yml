@@ -20,7 +20,7 @@
     owner: "kibana"
 
 - unarchive:
-    src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
+    src: "https://download.elastic.co/kibana/kibana/kibana-{{ kibana_version }}-linux-x64.tar.gz"
     dest: "/opt"
     copy: no
     creates: "{{ kibana_home }}/bin/kibana"
