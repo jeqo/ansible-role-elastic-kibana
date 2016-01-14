@@ -6,6 +6,12 @@
 - name: define kibana defaults
   template: src=kibana-default.j2 dest=/etc/default/kibana
 
+- name: configure kibana
+  template:
+    src: kibana.yml.j2
+    dest: "{{ kibana_home }}/config/kibana.yml"
+    owner: kibana
+
 # - name: reload systemd
 #   command: systemctl daemon-reload
 
