@@ -26,5 +26,6 @@
     src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
     dest: "/tmp"
     copy: no
+    creates: /tmp/{{ kibana_filename }}
 
-- command: mv /tmp/{{ kibana_filename }}/* /opt/kibana
+- command: mv /tmp/{{ kibana_filename }}/ /opt/kibana
