@@ -19,13 +19,8 @@
     state: directory
     owner: "kibana"
 
-- set_fact:
-    kibana_filename: kibana-{{ kibana_version }}-linux-x64
-
 - unarchive:
     src: "https://download.elastic.co/kibana/kibana/{{ kibana_filename }}.tar.gz"
-    dest: "/tmp"
+    dest: "/opt"
     copy: no
-    creates: /tmp/{{ kibana_filename }}
-
-- command: mv /tmp/{{ kibana_filename }}/ /opt/kibana
+    creates: "{{ kibana_home }}/bin/kibana"
