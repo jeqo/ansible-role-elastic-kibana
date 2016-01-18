@@ -1,12 +1,13 @@
+# vi /etc/systemd/system/kibana4.service
+
 [Unit]
-Description=Kibana 4
-
+Description=Kibana
+After=elasticsearch.service
+# After=logstash.service
 [Service]
-Type=simple
-User=logstash
-Environment=CONFIG_PATH={{ kibana_home }}/config/kibana.yml
-Environment=NODE_ENV=production
-ExecStart={{ kibana_home }}/bin/kibana
-
+ExecStartPre=rm -rf /var/run/kibana.pid
+ExecStart={{ kibana_home }}/bin/kibana/
+ExecReload=kill -9 $(cat /var/run/kibana.pid) && rm -rf /var/run/kibana.pid && {{ kibana_home }}/bin/kibana/
+ExecStop=kill -9 $(cat /var/run/kibana.pid)
 [Install]
 WantedBy=multi-user.target
