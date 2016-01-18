@@ -6,8 +6,12 @@
 #- name: define kibana defaults
 #  template: src=kibana-default.j2 dest=/etc/default/kibana
 
-- name: define kibana service
-  template: src=kibana.service.j2 dest=/etc/systemd/system/kibana.service
+#- name: define kibana service
+#  template: src=kibana.service.j2 dest=/etc/systemd/system/kibana.service
+
+- template: src=kibana-init.j2 dest=/etc/init.d/kibana
+
+- template: src=kibana-default.j2 dest=/etc/default/kibana
 
 - name: configure kibana
   template:

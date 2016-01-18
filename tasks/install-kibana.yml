@@ -1,13 +1,27 @@
 ---
 #
+- name: create kibana group
+  group: name=kibana state=present
 
-- name: define repo
-  template:
-    src: kibana-yum.repo.j2
-    dest: "/etc/yum.repos.d/kibana-{{ kibana_version }}.repo"
+- name: create kibana user
+  user: name=kibana group=kibana
 
-- name: import elastic key
-  rpm_key: state=present key=https://packages.elastic.co/GPG-KEY-elasticsearch
+- name: install required packages
+  yum: name={{ item }} state=present
+  with_items:
+    - curl
+    - tar
+    - ca-certificates
 
-- name: install kibana
-  yum: name=kibana state=present
+- name: prepare kibana home
+  file:
+    path: "{{ kibana_home }}"
+    state: directory
+    owner: "kibana"
+
+- unarchive:
+    src: "https://download.elastic.co/kibana/kibana/kibana-{{ kibana_version }}-linux-x64.tar.gz"
+    dest: "/opt"
+    owner: kibana
+    copy: no
+    creates: "{{ kibana_home }}/bin/kibana"
