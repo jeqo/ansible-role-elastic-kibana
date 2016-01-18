@@ -11,7 +11,7 @@
 
 #- template: src=kibana-init.j2 dest=/etc/init.d/kibana
 
-#- template: src=kibana-default.j2 dest=/etc/default/kibana
+# - template: src=kibana-default.j2 dest=/etc/default/kibana
 
 - name: configure kibana
   template:
