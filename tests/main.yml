@@ -1,7 +1,7 @@
 ---
 #
 - name: test install and configure kibana
-  hosts: 127.0.0.1
+  hosts: test01
 
   roles:
     - role: elastic-elasticsearch
