@@ -13,4 +13,7 @@
 #   command: systemctl daemon-reload
 
 - name: start and enable kibana service
-  service: name=kibana enabled=yes state=started
+  service:
+    name: kibana
+    enabled: yes
+    state: started

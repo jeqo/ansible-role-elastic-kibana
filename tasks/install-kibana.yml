@@ -1,13 +1,19 @@
 ---
 #
 - name: create kibana group
-  group: name=kibana state=present
+  group:
+    name: kibana
+    state: present
 
 - name: create kibana user
-  user: name=kibana group=kibana
+  user:
+    name: kibana
+    group: kibana
 
 - name: install required packages
-  yum: name={{ item }} state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - curl
     - tar
