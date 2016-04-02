@@ -3,7 +3,3 @@
 - apt_repository:
     repo: 'deb http://packages.elastic.co/kibana/{{ kibana_version }}/debian stable main'
     state: present
-
-- yum:
-    name: kibana
-    state: present
