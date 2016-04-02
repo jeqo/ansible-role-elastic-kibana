@@ -1,13 +1,7 @@
 ---
 # tasks file for elastic-kibana
-- include: install-kibana.yml
-  tags:
-    - install
+- include: "install-{{ ansible_os_family }}.yml"
   become: true
-  become_user: root
 
-- include: configure-kibana.yml
-  tags:
-    - configure
+- include: configure.yml
   become: true
-  become_user: root
