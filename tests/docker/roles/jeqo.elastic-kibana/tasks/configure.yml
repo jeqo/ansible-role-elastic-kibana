@@ -1,0 +1,13 @@
+---
+#
+- name: configure kibana
+  template:
+    src: kibana.yml.j2
+    dest: "{{ kibana_home }}/config/kibana.yml"
+    # owner: kibana
+- name: start and enable kibana service
+  service:
+    name: kibana
+    enabled: yes
+    state: started
+  ignore_errors: yes

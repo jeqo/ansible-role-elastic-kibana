@@ -1,0 +1,3 @@
+tests/roles/
+.vagrant/
+*.retry

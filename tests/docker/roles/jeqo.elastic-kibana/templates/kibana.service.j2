@@ -1,0 +1,17 @@
+# vi /etc/systemd/system/kibana4.service
+
+[Unit]
+Description=Kibana
+After=elasticsearch.service
+# After=logstash.service
+
+[Service]
+ExecStartPre=rm -rf /var/run/kibana.pid
+ExecStart={{ kibana_home }}/bin/kibana
+ExecReload=kill -9 $(cat /var/run/kibana.pid) && rm -rf /var/run/kibana.pid && {{ kibana_home }}/bin/kibana
+ExecStop=kill -9 $(cat /var/run/kibana.pid)
+User=kibana
+Group=kibana
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+---
+#
+- apt_repository:
+    repo: 'deb http://packages.elastic.co/kibana/{{ kibana_version }}/debian stable main'
+    state: present
+
+- apt:
+    name: kibana
+    state: present

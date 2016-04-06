@@ -1,5 +1,6 @@
 ---
 #
+
 - name: Add repository
   yum_repository:
     name: Kibana
@@ -7,8 +8,6 @@
     baseurl: "http://packages.elastic.co/kibana/{{ kibana_version }}/centos"
     gpgkey: http://packages.elastic.co/GPG-KEY-elasticsearch
     gpgcheck: yes
-    state: present
 
 - yum:
     name: kibana
-    state: present

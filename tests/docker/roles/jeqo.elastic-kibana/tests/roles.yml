@@ -1,0 +1,6 @@
+# Install a role from the Ansible Galaxy
+- src: https://github.com/jeqo/ansible-role-elastic-elasticsearch
+  name: elastic-elasticsearch
+
+- src: https://github.com/jeqo/ansible-role-elastic-kibana
+  name: elastic-kibana
