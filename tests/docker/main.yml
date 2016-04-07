@@ -6,7 +6,7 @@
     - name: create container
       docker:
         name: test-centos
-        image: centos
+        image: jeqo/centos
         command: sleep infinity
         state: started
 

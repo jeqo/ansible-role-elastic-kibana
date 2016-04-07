@@ -2,7 +2,7 @@
 #
 - template:
     src: kibana-yum.repo.j2
-    dest: /etc/yum.repos.d/
+    dest: /etc/yum.repos.d/kibana.repo
   become: yes
 
 - yum:
