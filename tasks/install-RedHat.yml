@@ -1,13 +1,10 @@
 ---
 #
-
-- name: Add repository
-  yum_repository:
-    name: Kibana
-    description: "Kibana repository for {{ kibana_version }}.x packages"
-    baseurl: "http://packages.elastic.co/kibana/{{ kibana_version }}/centos"
-    gpgkey: http://packages.elastic.co/GPG-KEY-elasticsearch
-    gpgcheck: yes
+- template:
+    src: kibana-yum.repo.j2
+    dest: /etc/yum.repos.d/kibana.repo
+  become: yes
 
 - yum:
     name: kibana
+    state: present

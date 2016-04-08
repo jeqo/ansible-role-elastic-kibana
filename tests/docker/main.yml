@@ -1,0 +1,21 @@
+---
+#
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: create container
+      docker:
+        name: test-centos
+        image: jeqo/centos
+        command: sleep infinity
+        state: started
+
+    - add_host:
+        name: test-centos
+        groups: docker
+        ansible_connection: docker
+
+- hosts: test-centos
+  connection: docker
+  roles:
+    - role: jeqo.elastic-kibana
