@@ -2,6 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
+  config.vm.network "private_network", type: "dhcp"
+
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "tests.yml"
     ansible.galaxy_role_file = "roles.yml"
