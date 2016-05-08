@@ -7,3 +7,4 @@
 - apt:
     name: kibana
     state: present
+    force: true
