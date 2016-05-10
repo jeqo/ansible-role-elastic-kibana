@@ -1,0 +1,12 @@
+---
+#
+- name: prepare kibana group
+  group:
+    name: kibana
+    state: present
+
+- name: prepare kibana user
+  user:
+    name: kibana
+    group: kibana
+    state: present

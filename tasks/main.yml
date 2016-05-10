@@ -1,5 +1,8 @@
 ---
 # tasks file for elastic-kibana
+- include: prepare.yml
+  become: true
+
 - include: "install-{{ ansible_os_family }}.yml"
   become: true
 
